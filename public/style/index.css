@@ -21,6 +21,7 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Inter', sans-serif;
+    position: relative;
 
 }
 
@@ -35,6 +36,17 @@ body {
 input {
     width: 30rem;
     padding-left: 1.6rem;
+    background: #cbd5e1;
+}
+
+.result {
+    position: fixed;
+    top: 50%;
+    left: 3.2rem;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: 2.4rem;
+    animation: appearFromBottom 500ms linear backwards;
 }
 
 .wrapper {
@@ -71,7 +83,7 @@ input {
 
 .array {
     display: flex;
-    height: 6rem;
+    height: 4rem;
     gap: .8rem;
     max-width: 100%;
     flex-wrap: wrap;
@@ -85,6 +97,37 @@ input {
     justify-content: center;
     background: #cbd5e1;
     border-radius: .4rem;
-    color: #475569;
+    color: #0f172a;
     font-weight: 800;
+    transition: all 500ms ease-in-out;
+}
+
+.array__element[isMiddle="true"] {
+    color: #f1f5f9;
+    background: #15803d;
+    box-shadow: 0 0 1.6rem #15803d;
+    animation: pulse 500ms ease-in-out backwards;
+}
+
+@keyframes appearFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(.4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: translate(1);
+    }
 }
