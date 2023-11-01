@@ -99,7 +99,11 @@ input {
     border-radius: .4rem;
     color: #0f172a;
     font-weight: 800;
-    transition: all 500ms ease-in-out;
+    transition: all 50ms ease-in-out;
+}
+
+.array__element:hover {
+    transform: scale(1.5);
 }
 
 .array__element[isMiddle="true"] {
