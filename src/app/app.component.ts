@@ -10,12 +10,10 @@ export class AppComponent {
   array: number[] = [];
 
   createArray(inputValue: string): void {
+    this.array = [];
     for (let i = 0; i < +inputValue; i++) {
       this.array.push(i)
     } 
-
-    console.log("criando vetor");
-    
   }
 
   search(inputValue: string): void {
