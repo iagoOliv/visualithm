@@ -1,4 +1,4 @@
 <div class="input__wrapper">
-  <input type="number" placeholder={{placeholder}} />
-  <button (click)="onButtonClick()">{{ button_message }}</button>
+  <input #box type="number" placeholder={{placeholder}} />
+  <button (click)="onButtonClick(box.value)">{{ button_message }}</button>
 </div>

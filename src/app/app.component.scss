@@ -4,3 +4,10 @@
     flex-wrap: wrap;
     gap: .8rem;
 }
+
+.array-card__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    max-width: 100%;
+}

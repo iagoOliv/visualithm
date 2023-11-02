@@ -7,12 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'visualithm';
+  array: number[] = [];
 
-  createArray(): void {
-    console.log("criando array");
+  createArray(inputValue: string): void {
+    for (let i = 0; i < +inputValue; i++) {
+      this.array.push(i)
+    } 
+
+    console.log("criando vetor");
+    
   }
 
-  search(): void {
-    console.log("pesquisando...");
+  search(inputValue: string): void {
+    console.log("pesquisando..." + inputValue);
   }
 }

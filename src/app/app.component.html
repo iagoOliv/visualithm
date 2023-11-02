@@ -2,11 +2,18 @@
     <app-input
         placeholder="Digite o número de elementos."
         button_message="Criar Array"
-        (buttonClick)="createArray()"
+        (buttonClick)="createArray($event)"
     ></app-input>
     <app-input
         placeholder="Digite o número a pesquisar."
         button_message="Pesquisar"
-        (buttonClick)="search()"
+        (buttonClick)="search($event)"
     ></app-input>
+</div>
+
+<div class="array-card__wrapper">
+    <app-array-card 
+        *ngFor="let item of array"
+        [item]="item"
+    ></app-array-card>
 </div>
