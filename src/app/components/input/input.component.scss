@@ -1,0 +1,30 @@
+.input__wrapper {
+    display: flex;
+    gap: 1.6rem;
+    height: 4rem
+}
+
+.input__wrapper > * {
+    border: none;
+    border-radius: .4rem;
+    transition: all ease-in-out 200ms;
+    height: 100%;
+}
+
+input {
+    width: 30rem;
+    padding-left: 1.6rem;
+    background: #cbd5e1;
+}
+
+button {
+    padding-left: 3.2rem;
+    padding-right: 3.2rem; 
+    background: #0ea5e9;
+    color: #f1f5f9;
+    cursor: pointer;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}

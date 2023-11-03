@@ -1,0 +1,13 @@
+.options__wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+
+.array-card__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    max-width: 100%;
+}
