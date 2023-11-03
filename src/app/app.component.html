@@ -1,10 +1,11 @@
-<div class="options__wrapper">
-    <app-input
+<div class="wrapper">
+    <app-input class="options"
         placeholder="Digite o número de elementos."
         button_message="Criar Array"
         (buttonClick)="createArray($event)"
     ></app-input>
-    <app-input
+    <app-input class="options"
+        appBinarySearch
         placeholder="Digite o número a pesquisar."
         button_message="Pesquisar"
         (buttonClick)="search($event)"

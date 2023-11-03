@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InputComponent } from './components/input/input.component';
 import { ArrayCardComponent } from './components/array-card/array-card.component';
+import { BinarySearchDirective } from './algorithms/binary-search.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    ArrayCardComponent
+    ArrayCardComponent,
+    BinarySearchDirective
   ],
   imports: [
     BrowserModule,

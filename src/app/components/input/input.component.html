@@ -1,4 +1,2 @@
-<div class="input__wrapper">
-  <input #box type="number" placeholder={{placeholder}} />
-  <button (click)="onButtonClick(box.value)">{{ button_message }}</button>
-</div>
+<input class="options__input" #box type="number" placeholder={{placeholder}} />
+<button class="options__input" (click)="onButtonClick(box.value)">{{ button_message }}</button>

@@ -1,4 +1,4 @@
-.array-card {
+.array__card {
     width: 5rem;
     height: 5rem;
     display: flex;
@@ -9,4 +9,38 @@
     color: #0f172a;
     font-weight: 800;
     transition: all 50ms ease-in-out;
+
+    &[isMiddle="true"] {
+        color: #f1f5f9;
+        background: #15803d;
+        box-shadow: 0 0 1.6rem #15803d;
+        animation: pulse 500ms ease-in-out backwards;
+    }
+
+    &:hover {
+        transform: scale(1.5);
+    }
+}
+
+@keyframes appearFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(.4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: translate(1);
+    }
 }
