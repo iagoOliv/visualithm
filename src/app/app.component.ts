@@ -15,12 +15,11 @@ export class AppComponent {
     for (let i = 0; i < +inputValue; i++) {
       this.array.push(i)
       await this.stop(0.01);
-    } 
+    }
   }
 
-  // Uma forma de trigar o BinarySearch é colocando numa função do escopo do elemento do Botão
-  // Como passar os elementos?
-  search(inputValue: string): void {
+  // Uma forma de trigar o BinarySearch é colocando numa função do escopo do elemento do app
+  search(): void {
      new BinarySearchDirective();
   }
 

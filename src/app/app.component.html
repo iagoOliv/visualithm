@@ -8,12 +8,12 @@
         appBinarySearch
         placeholder="Digite o número a pesquisar."
         button_message="Pesquisar"
-        (buttonClick)="search($event)"
+        (buttonClick)="search()"
     ></app-input>
 </div>
 
 <div class="array-card__wrapper">
-    <app-array-card 
+    <app-array-card
         *ngFor="let item of array"
         [item]="item"
     ></app-array-card>
