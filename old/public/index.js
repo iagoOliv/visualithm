@@ -9,7 +9,7 @@ class BinarySearch {
     static async search(array, target) {
         let start = 0;
         let end = array.length - 1;
-        let middle = Math.round((end - start) / 2);
+        let middle = Math.round((end + start) / 2);
         array[middle].setAttribute("isMiddle", true);
 
         if (target > end || target < start) {
