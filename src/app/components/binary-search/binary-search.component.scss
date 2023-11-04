@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+
+:host ::ng-deep .options {
+    display: flex;
+    gap: 1.6rem;
+    height: 4rem;
+    
+    &__input {
+        border: none;
+        border-radius: .4rem;
+        transition: all ease-in-out 200ms;
+        height: 100%;
+    }
+}
+
+.array-card__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    max-width: 100%;
+    margin-top: 5rem;
+}
