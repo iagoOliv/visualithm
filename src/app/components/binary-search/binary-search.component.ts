@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class BinarySearchComponent {
   array: number[] = [];
-  
+
   async createArray(inputValue: string) {
     this.array = [];
     for (let i = 0; i < +inputValue; i++) {
@@ -17,8 +17,7 @@ export class BinarySearchComponent {
   }
 
   // Uma forma de trigar o BinarySearch é colocando numa função do escopo do elemento do app
-  search(): void {
-    //  new BinarySearchDirective();
+  search() {
   }
 
   // Cria uma promessa a ser resolvida.

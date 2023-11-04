@@ -7,6 +7,7 @@ import { InputComponent } from './components/input/input.component';
 import { ArrayCardComponent } from './components/array-card/array-card.component';
 // import { BinarySearchDirective } from './algorithms/binary-search.directive';
 import { BinarySearchComponent } from './components/binary-search/binary-search.component';
+import { SetBackground } from './directives/setBackground.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BinarySearchComponent } from './components/binary-search/binary-search.
     InputComponent,
     ArrayCardComponent,
     // BinarySearchDirective,
-    BinarySearchComponent
+    BinarySearchComponent,
+    SetBackground
   ],
   imports: [
     BrowserModule,
