@@ -15,6 +15,7 @@ export class BinarySearchService {
 
 		while (start <= end) {
 			mid = Math.floor((start + end) / 2);
+			// Atualiza o vetor de índices do meio
 			this.middleIndexes.push(mid)
 
 			if (array[mid] > target) {
