@@ -4,26 +4,27 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BinarySearchService {
-  middleIndexes = [];
+  	middleIndexes: number[] = [];
 
-  constructor() { }
+  	constructor() { }
 
-  binarySearch(array: number[], target: number): number {
-    let start = 0;
-    let end = array.length - 1;
-    let mid;
+  	binarySearch(array: number[], target: number): number {
+		let start = 0;
+		let end = array.length - 1;
+		let mid;
 
-    while (start <= end) {
-      mid = Math.floor((start + end) / 2);
+		while (start <= end) {
+			mid = Math.floor((start + end) / 2);
+			this.middleIndexes.push(mid)
 
-      if (array[mid] > target) {
-        end = mid - 1;
-      } else if (array[mid] < target) {
-        start = mid + 1;
-      } else {
-        return mid;
-      }
-    }
-    return -1;
-  }
+			if (array[mid] > target) {
+				end = mid - 1;
+			} else if (array[mid] < target) {
+				start = mid + 1;
+			} else {
+				return mid;
+			}
+		}
+		return -1;
+  	}
 }
