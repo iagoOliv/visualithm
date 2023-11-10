@@ -18,6 +18,10 @@ A WebApp usa:
 ```
 npm i
 ```
+### Instale o Angular CLI
+```
+npm i -g @angular/cli
+```
 ### Rode no LocalHost
 ```
 ng serve --open
