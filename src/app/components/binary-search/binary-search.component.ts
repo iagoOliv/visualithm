@@ -15,7 +15,8 @@ export class BinarySearchComponent {
     constructor(private renderer: Renderer2, private binarySearchService: BinarySearchService) { }
 
     @ViewChild('_binarySearchArray', { static: true }) _binarySearchArray!: ElementRef
-    onCreate(target: string) {
+
+    async onCreate(target: string) {
         /* 
           O binarySearchService cria uma classe que cria um Array de Middles, Starts e Ends;
     
@@ -46,10 +47,11 @@ export class BinarySearchComponent {
 
         // Renderização dos Arrays
 
-        middleIndexesHistory.forEach(async (middleIndex) => {
+        for (const middleIndex of middleIndexesHistory) {
             this.renderer.addClass(this.components[middleIndex].children[0], 'middle');
             await this.stop(500);
-        })
+            this.renderer.removeClass(this.components[middleIndex].children[0], 'middle')
+        }
 
         this.renderer.addClass(this.components[+target].children[0], 'target');
 
@@ -63,9 +65,9 @@ export class BinarySearchComponent {
     clearComponentClasses() {
         this.components.forEach((component: any) => {
             try {
-                this.renderer.removeClass(component, "start");
-                this.renderer.removeClass(component, "middle");
-                this.renderer.removeClass(component, "end");
+                this.renderer.removeClass(component.children[0], "start");
+                this.renderer.removeClass(component.children[0], "middle");
+                this.renderer.removeClass(component.children[0], "end");
             } catch (e) {
                 console.log("No property 'start/middle/end' detected")
             }
