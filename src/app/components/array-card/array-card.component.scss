@@ -1,7 +1,7 @@
 $target: #042f2e;
 $middle: #15803d;
 $start: #c7d2fe;
-$end: #c7d2fe;
+$end: #a5b4fc;
 
 .array__card {
     width: 5rem;
@@ -38,6 +38,13 @@ $end: #c7d2fe;
     color: #f1f5f9;
     background: $start;
     box-shadow: 0 0 1.6rem $start;
+    animation: pulse 500ms ease-in-out backwards;
+}
+
+.end {
+    color: #f1f5f9;
+    background: $end;
+    box-shadow: 0 0 1.6rem $end;
     animation: pulse 500ms ease-in-out backwards;
 }
 

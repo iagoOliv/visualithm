@@ -7,59 +7,57 @@ import { BinarySearchService } from 'src/app/services/binary-search.service';
     templateUrl: './binary-search.component.html',
     styleUrls: ['./binary-search.component.scss']
 })
+
 export class BinarySearchComponent {
     array: number[] = [];
-    components: any; // Armazena elementos HTML
+    components: any;
 
-    // Injection de Classe Serviço, manipulação direta
     constructor(private renderer: Renderer2, private binarySearchService: BinarySearchService) { }
 
     @ViewChild('_binarySearchArray', { static: true }) _binarySearchArray!: ElementRef
-
     async onCreate(target: string) {
-        /* 
-          O binarySearchService cria uma classe que cria um Array de Middles, Starts e Ends;
-    
-          Os Arrays podem ser usados como um histórico interativo no FrontEnd
-    
-          ```ts
-          array = [1, 2, 3, 4, 5];
-          target = 2
-          
-          middleIndexes: [3, 2]
-          ```
-        */
-
         if (+target >= this.array.length) { return; }
 
-        this.components = this._binarySearchArray.nativeElement.childNodes; // Seleciona os filhos de array-card__wrapper 
-        
-        // Cleanup
-        this.clearComponentClasses();
-
-        const iteration = 0;
-
-        this.binarySearchService.binarySearch(this.array, +target); // Roda a função da classe e cria o histórico;
+        this.components = this._binarySearchArray.nativeElement.childNodes; // Seleciona os filhos de array-card__wrapper
+        this.binarySearchService.binarySearch(this.array, +target);
 
         const middleIndexesHistory = this.binarySearchService.middleIndexes;
         const startIndexesHistory = this.binarySearchService.startIndexes;
         const endIndexesHistory = this.binarySearchService.endIndexes;
 
-        // Renderização dos Arrays
-
-        for (const middleIndex of middleIndexesHistory) {
-            this.renderer.addClass(this.components[middleIndex].children[0], 'middle');
-            await this.stop(500);
-            this.renderer.removeClass(this.components[middleIndex].children[0], 'middle')
-        }
+        let currentMiddleIndex: number;
+        let currentStartIndex: number;
+        let currentEndIndex: number;
 
         this.renderer.addClass(this.components[+target].children[0], 'target');
+        this.stop(1000);
 
-        console.log(this.components)
+        // Renderização dos Arrays
+        for (let i = 0; i <= this.binarySearchService.iterationCount; i++) {
+            // Definição
+            currentMiddleIndex = middleIndexesHistory[i];
+            currentStartIndex = startIndexesHistory[i];
+            currentEndIndex = endIndexesHistory[i];
 
-        // ! Remove:
-        // ! A função pode ser um void porque já se conhece o +target;
-        // const targetIndex = this.binarySearchService.binarySearch(this.array, +target) // (int target)
+            // Adicionar
+            this.renderer.addClass(this.components[currentStartIndex].children[0], 'start');
+            this.renderer.addClass(this.components[currentEndIndex].children[0], 'end');
+            this.renderer.addClass(this.components[currentMiddleIndex].children[0], 'middle');
+
+            // Se for a ultima iteração, não remover
+            if (i == this.binarySearchService.iterationCount) { break; }
+
+            // Parar
+            await this.stop(1000);
+
+            // Limpar
+            this.renderer.removeClass(this.components[currentMiddleIndex].children[0], 'middle');
+            this.renderer.removeClass(this.components[currentEndIndex].children[0], 'end'); 
+            this.renderer.removeClass(this.components[currentStartIndex].children[0], 'start');
+        }
+
+        this.renderer.removeClass(this.components[+target].children[0], 'target');
+        this.binarySearchService.restart();
     }
     
     clearComponentClasses() {

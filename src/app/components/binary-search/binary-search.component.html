@@ -1,38 +1,43 @@
-<div class="wrapper">
-    <app-input class="options"
-        placeholder="Digite o número de elementos."
-        button_message="Criar Array"
-        (buttonClick)="createArray($event)"
-    ></app-input>
-    <app-input class="options"
-        placeholder="Digite o número a pesquisar."
-        button_message="Pesquisar"
-        (buttonClick)="onCreate($event)"
-    ></app-input>
-</div>
+<app-go-to-button goToThis=""></app-go-to-button>
 
-<div class="legend">
-    <div class="legend__wrapper">
-        <div class="legend__wrapper--icon legend--target"></div>
-        <span class="legend__wrapper-text">Target</span>
+<main class="binary-search">
+    <div class="wrapper">
+        <app-input class="options"
+            placeholder="Digite o número de elementos."
+            button_message="Criar Array"
+            (buttonClick)="createArray($event)"
+        ></app-input>
+        <app-input class="options"
+            placeholder="Digite o número a pesquisar."
+            button_message="Pesquisar"
+            (buttonClick)="onCreate($event)"
+        ></app-input>
     </div>
-    <div class="legend__wrapper">
-        <div class="legend__wrapper--icon legend--middle"></div>
-        <span class="legend__wrapper-text">Middle</span>
+    
+    <div class="legend">
+        <div class="legend__wrapper">
+            <div class="legend__wrapper--icon legend--target"></div>
+            <span class="legend__wrapper-text">Target</span>
+        </div>
+        <div class="legend__wrapper">
+            <div class="legend__wrapper--icon legend--middle"></div>
+            <span class="legend__wrapper-text">Middle</span>
+        </div>
+        <div class="legend__wrapper">
+            <div class="legend__wrapper--icon legend--start"></div>
+            <span class="legend__wrapper-text">Start</span>
+        </div>
+        <div class="legend__wrapper">
+            <div class="legend__wrapper--icon legend--end"></div>
+            <span class="legend__wrapper-text">End</span>
+        </div>
     </div>
-    <div class="legend__wrapper">
-        <div class="legend__wrapper--icon legend--start"></div>
-        <span class="legend__wrapper-text">Start</span>
+    
+    <div class="array-card__wrapper" #_binarySearchArray>
+        <app-array-card
+            *ngFor="let item of array"
+            [item]="item"
+        ></app-array-card>
     </div>
-    <div class="legend__wrapper">
-        <div class="legend__wrapper--icon legend--end"></div>
-        <span class="legend__wrapper-text">End</span>
-    </div>
-</div>
-
-<div class="array-card__wrapper" #_binarySearchArray>
-    <app-array-card
-        *ngFor="let item of array"
-        [item]="item"
-    ></app-array-card>
-</div>
+    
+</main>

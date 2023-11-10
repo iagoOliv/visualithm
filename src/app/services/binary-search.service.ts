@@ -7,6 +7,7 @@ export class BinarySearchService {
   	middleIndexes: number[] = [];
 	startIndexes: number[] = [];
 	endIndexes: number[] = [];
+	iterationCount: number = -1;
 
   	constructor() { }
 
@@ -16,11 +17,13 @@ export class BinarySearchService {
 		let mid;
 
 		while (start <= end) {
+			this.iterationCount++;
+
 			mid = Math.floor((start + end) / 2);
 			// Atualiza os vetores
 			this.middleIndexes.push(mid);
-			this.startIndexes.push(mid);
-			this.endIndexes.push(mid);
+			this.startIndexes.push(start);
+			this.endIndexes.push(end);
 
 			if (array[mid] > target) {
 				end = mid - 1;
@@ -32,4 +35,11 @@ export class BinarySearchService {
 		}
 		return;
   	}
+
+	restart(): void {
+		this.middleIndexes = [];
+		this.startIndexes = [];
+		this.endIndexes = [];
+		this.iterationCount = -1;
+	}
 }

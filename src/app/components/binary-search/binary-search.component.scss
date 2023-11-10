@@ -3,6 +3,12 @@ $middle: #15803d;
 $start: #c7d2fe;
 $end: #a5b4fc;
 
+.binary-search {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
 .wrapper {
     display: flex;
     justify-content: space-between;

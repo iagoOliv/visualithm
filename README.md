@@ -30,3 +30,6 @@ ng serve --open
 ```
 ng build
 ```
+
+## Conteúdo de terceiros
+Ícones feitos pela **[Ionic](https://ionic.io/ionicons)**.

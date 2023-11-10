@@ -2,13 +2,26 @@ input {
     width: 30rem;
     padding-left: 1.6rem;
     background: #cbd5e1;
-    font-weight: 700;
     color: #1e293b;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+        appearance: none;
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &[type="number"] {
+        // Conserta um bug estranho no Firefox onde as setinhas são exibidas.
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
 }
 
 button {
     padding-left: 3.2rem;
     padding-right: 3.2rem; 
+    min-width: 12.8rem;
     background: #0ea5e9;
     color: #f1f5f9;
     cursor: pointer;
