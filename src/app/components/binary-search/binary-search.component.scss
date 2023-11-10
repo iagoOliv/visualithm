@@ -1,6 +1,11 @@
+$target: #042f2e;
+$middle: #15803d;
+$start: #c7d2fe;
+$end: #a5b4fc;
+
 .wrapper {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-wrap: wrap;
     gap: .8rem;
 }
@@ -23,5 +28,49 @@
     flex-wrap: wrap;
     gap: .8rem;
     max-width: 100%;
-    margin-top: 5rem;
+}
+
+::ng-deep .legend {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    padding: .8rem;
+    background: #cbd5e1;
+    border-radius: .8rem;
+    font-size: 700;
+    color: #1e293b;
+
+    &--target {
+        background: $target;
+        box-shadow: 0 0 .8rem darken($target, 20);
+    }
+
+    &--middle {
+        background: $middle;
+        box-shadow: 0 0 .8rem darken($middle, 20);
+    }
+
+    &--start {
+        background: $start;
+        box-shadow: 0 0 .8rem darken($start, 20);
+    }
+
+    &--end {
+        background: $end;
+        box-shadow: 0 0 .8rem darken($end, 20);
+    }
+
+    &__wrapper {
+        height: 2.2rem;
+        display: flex;
+        gap: .8rem;
+
+        &--icon {
+            height: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 10rem;
+        }
+    }
 }

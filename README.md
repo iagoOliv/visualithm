@@ -1,17 +1,28 @@
 # Visualithm
 
-Visualize some hand-picked algorithms in realtime! 
+Veja alguns algorítmos em tempo real!
 
-It uses:
+A WebApp usa:
 
-<img src="https://skillicons.dev/icons?i=angular,sass,nodejs"></img>
+<img src="https://skillicons.dev/icons?i=angular,ts,sass,nodejs"></img>
 
-# How to run
-## Running the app on a localhost
+## Metas
+| **Algorítmo** | **Implementação** |
+|---|---|
+| Pesquisa Binária | Em Progresso |
+| Sort Linear | A ser feito |
+| Pesquisa em Árvore | A ser feito |
+
+## Como Rodar?
+### Instale as dependências
 ```
-ng serve
+npm i
 ```
-## Building the app
+### Rode no LocalHost
+```
+ng serve --open
+```
+### Construa a Aplicação para uso estático
 ```
 ng build
 ```

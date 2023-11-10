@@ -5,27 +5,31 @@ import { Injectable } from '@angular/core';
 })
 export class BinarySearchService {
   	middleIndexes: number[] = [];
+	startIndexes: number[] = [];
+	endIndexes: number[] = [];
 
   	constructor() { }
 
-  	binarySearch(array: number[], target: number): number {
+  	binarySearch(array: number[], target: number): void {
 		let start = 0;
 		let end = array.length - 1;
 		let mid;
 
 		while (start <= end) {
 			mid = Math.floor((start + end) / 2);
-			// Atualiza o vetor de índices do meio
-			this.middleIndexes.push(mid)
+			// Atualiza os vetores
+			this.middleIndexes.push(mid);
+			this.startIndexes.push(mid);
+			this.endIndexes.push(mid);
 
 			if (array[mid] > target) {
 				end = mid - 1;
 			} else if (array[mid] < target) {
 				start = mid + 1;
 			} else {
-				return mid;
+				return;
 			}
 		}
-		return -1;
+		return;
   	}
 }

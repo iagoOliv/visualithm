@@ -3,49 +3,85 @@ import { BinarySearchService } from 'src/app/services/binary-search.service';
 
 
 @Component({
-  selector: 'app-binary-search',
-  templateUrl: './binary-search.component.html',
-  styleUrls: ['./binary-search.component.scss']
+    selector: 'app-binary-search',
+    templateUrl: './binary-search.component.html',
+    styleUrls: ['./binary-search.component.scss']
 })
 export class BinarySearchComponent {
-  array: number[] = [];
+    array: number[] = [];
+    components: any; // Armazena elementos HTML
 
-  // Como os serviços são injetáveis, a gente consegue injetar ele no constructor
-  constructor(private renderer: Renderer2, private binarySearchService: BinarySearchService) {}
+    // Injection de Classe Serviço, manipulação direta
+    constructor(private renderer: Renderer2, private binarySearchService: BinarySearchService) { }
 
-  @ViewChild('search', {static: true}) search!: ElementRef
-  onCreate(target: string) {
-    // Seleciona os filhos da div array-card__wrapper 
-    const childComponents = this.search.nativeElement.childNodes;
+    @ViewChild('_binarySearchArray', { static: true }) _binarySearchArray!: ElementRef
+    onCreate(target: string) {
+        /* 
+          O binarySearchService cria uma classe que cria um Array de Middles, Starts e Ends;
+    
+          Os Arrays podem ser usados como um histórico interativo no FrontEnd
+    
+          ```ts
+          array = [1, 2, 3, 4, 5];
+          target = 2
+          
+          middleIndexes: [3, 2]
+          ```
+        */
 
-    // Pega o resultado da função busca binária do serviço enviando o vetor abstrato e o target escrito pelo usuário no input que é recebido como parâmetro pela função 
-    // O + antes do target é pra transformar de string para inteiro
-    const targetIndex = this.binarySearchService.binarySearch(this.array, +target)
+        if (+target >= this.array.length) { return; }
 
-    // Pega o atributo dos índices do meio pelo service da busca
-    const middleIndexes = this.binarySearchService.middleIndexes
+        this.components = this._binarySearchArray.nativeElement.childNodes; // Seleciona os filhos de array-card__wrapper 
+        
+        // Cleanup
+        this.clearComponentClasses();
 
-    // Para cada um dos índices do meio ele pinta o background do componente de verde
-    // Aliás, acho que a gente deveria setar classes ao invés de declarar o estilo do background aqui 
-    middleIndexes.forEach((middleIndex) => {
-      this.renderer.setStyle(childComponents[middleIndex].children[0], 'backgroundColor', 'green')
-    })
+        const iteration = 0;
 
-    // Pinta o background no índice do target
-    this.renderer.setStyle(childComponents[targetIndex].children[0], 'backgroundColor', 'red')
+        this.binarySearchService.binarySearch(this.array, +target); // Roda a função da classe e cria o histórico;
 
-  }
+        const middleIndexesHistory = this.binarySearchService.middleIndexes;
+        const startIndexesHistory = this.binarySearchService.startIndexes;
+        const endIndexesHistory = this.binarySearchService.endIndexes;
 
-  async createArray(inputValue: string) {
-    this.array = [];
-    for (let i = 0; i < +inputValue; i++) {
-      this.array.push(i)
-      await this.stop(0.01);
+        // Renderização dos Arrays
+
+        middleIndexesHistory.forEach(async (middleIndex) => {
+            this.renderer.addClass(this.components[middleIndex].children[0], 'middle');
+            await this.stop(500);
+        })
+
+        this.renderer.addClass(this.components[+target].children[0], 'target');
+
+        console.log(this.components)
+
+        // ! Remove:
+        // ! A função pode ser um void porque já se conhece o +target;
+        // const targetIndex = this.binarySearchService.binarySearch(this.array, +target) // (int target)
     }
-  }
+    
+    clearComponentClasses() {
+        this.components.forEach((component: any) => {
+            try {
+                this.renderer.removeClass(component, "start");
+                this.renderer.removeClass(component, "middle");
+                this.renderer.removeClass(component, "end");
+            } catch (e) {
+                console.log("No property 'start/middle/end' detected")
+            }
+        });
+    }
 
-  // Cria uma promessa a ser resolvida.
-  async stop(ms: number) {
-    await new Promise(resolve => setTimeout(resolve, ms))
-}
+    async createArray(inputValue: string) {
+        this.array = [];
+        for (let i = 0; i < +inputValue; i++) {
+            this.array.push(i)
+            await this.stop(0.001);
+        }
+    }
+
+    // Cria uma promessa a ser resolvida.
+    async stop(ms: number) {
+        await new Promise(resolve => setTimeout(resolve, ms))
+    }
 }

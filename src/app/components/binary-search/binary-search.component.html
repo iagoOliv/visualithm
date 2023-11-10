@@ -11,7 +11,26 @@
     ></app-input>
 </div>
 
-<div class="array-card__wrapper" #search>
+<div class="legend">
+    <div class="legend__wrapper">
+        <div class="legend__wrapper--icon legend--target"></div>
+        <span class="legend__wrapper-text">Target</span>
+    </div>
+    <div class="legend__wrapper">
+        <div class="legend__wrapper--icon legend--middle"></div>
+        <span class="legend__wrapper-text">Middle</span>
+    </div>
+    <div class="legend__wrapper">
+        <div class="legend__wrapper--icon legend--start"></div>
+        <span class="legend__wrapper-text">Start</span>
+    </div>
+    <div class="legend__wrapper">
+        <div class="legend__wrapper--icon legend--end"></div>
+        <span class="legend__wrapper-text">End</span>
+    </div>
+</div>
+
+<div class="array-card__wrapper" #_binarySearchArray>
     <app-array-card
         *ngFor="let item of array"
         [item]="item"

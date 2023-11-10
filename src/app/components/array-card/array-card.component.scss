@@ -1,3 +1,8 @@
+$target: #042f2e;
+$middle: #15803d;
+$start: #c7d2fe;
+$end: #c7d2fe;
+
 .array__card {
     width: 5rem;
     height: 5rem;
@@ -10,16 +15,30 @@
     font-weight: 800;
     transition: all 50ms ease-in-out;
 
-    &[isMiddle="true"] {
-        color: #f1f5f9;
-        background: #15803d;
-        box-shadow: 0 0 1.6rem #15803d;
-        animation: pulse 500ms ease-in-out backwards;
-    }
-
     &:hover {
         transform: scale(1.5);
     }
+}
+
+.middle {
+    color: #f1f5f9;
+    background: $middle;
+    box-shadow: 0 0 1.6rem $middle;
+    animation: pulse 500ms ease-in-out backwards;
+}
+
+.target {
+    color: #f1f5f9;
+    background: $target;
+    box-shadow: 0 0 1.6rem $target;
+    animation: pulse 500ms ease-in-out backwards;
+}
+
+.start {
+    color: #f1f5f9;
+    background: $start;
+    box-shadow: 0 0 1.6rem $start;
+    animation: pulse 500ms ease-in-out backwards;
 }
 
 @keyframes appearFromBottom {
