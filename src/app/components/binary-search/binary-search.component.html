@@ -7,14 +7,13 @@
     <app-input class="options"
         placeholder="Digite o número a pesquisar."
         button_message="Pesquisar"
-        (buttonClick)="search()"
+        (buttonClick)="onCreate($event)"
     ></app-input>
 </div>
 
-<div class="array-card__wrapper">
+<div class="array-card__wrapper" #search>
     <app-array-card
         *ngFor="let item of array"
         [item]="item"
-        setBackground
     ></app-array-card>
 </div>
