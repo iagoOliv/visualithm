@@ -2,8 +2,8 @@ $main: #cbd5e1;
 $faded: lighten(#cbd5e1, 2);
 $target: #2563eb;
 $middle: #15803d;
-$start: #c7d2fe;
-$end: #a5b4fc;
+$start: #a78bfa;
+$end: #c084fc;
 
 .array__card {
     width: 5rem;
@@ -55,7 +55,7 @@ $end: #a5b4fc;
     color: darken($faded, 5);
     background: $faded;
     box-shadow: 0 0 1.6rem $faded;
-    animation: pulse 500ms ease-in-out backwards; 
+    animation: pulse 500ms ease-in-out backwards;
 }
 
 @keyframes appearFromBottom {
@@ -77,7 +77,7 @@ $end: #a5b4fc;
         transform: scale(1.5);
     }
     100% {
-        transform: translate(1);
+        transform: scale(1);
     }
 }
 

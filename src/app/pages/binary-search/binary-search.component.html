@@ -3,24 +3,24 @@
 <main class="binary-search">
     <div class="wrapper">
         <app-input class="options"
-            placeholder="Digite o número de elementos."
-            button_message="Criar Array"
-            (buttonClick)="createArray($event)"
+                   placeholder="Digite o número de elementos."
+                   button_message="Criar Array"
+                   (buttonClick)="createArray($event)"
         ></app-input>
         <app-input class="options"
-            placeholder="Digite o número a pesquisar."
-            button_message="Nulo"
+                   placeholder="Digite o número a pesquisar."
+                   button_message="Nulo"
         ></app-input>
     </div>
-    <div class="flex">
-        <button
-            (click)="subtractIterator()"
-        >Voltar -- </button>
-        <button
-            (click)="addIterator()"
-        >Avançar ++ </button>
+    <div class="notice flex">
         <span>Não estrapole o número de iterações da pesquisa binária</span>
         <span>Target é 20</span>
+    </div>
+    <div class="flex">
+        <app-button-icon (click)="subtractIterator()"
+                         buttonImage="assets/icons/caret-back-outline.svg"></app-button-icon>
+        <app-button-icon (click)="addIterator()"
+                         buttonImage="assets/icons/caret-forward-outline.svg"></app-button-icon>
     </div>
     <div class="legend">
         <div class="legend__wrapper">

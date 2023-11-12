@@ -1,0 +1,14 @@
+<app-go-to-button></app-go-to-button>
+
+<main class="random">
+  <span class="random__output" #output>0</span>
+  <div class="random__options">
+    <app-button-icon (click)="render()" buttonText="" buttonImage="assets/icons/play.svg">
+    </app-button-icon>
+  </div>
+</main>
+
+<app-sound-effect
+  #iteration
+  category="iteration"
+></app-sound-effect>

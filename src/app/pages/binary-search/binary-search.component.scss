@@ -1,7 +1,7 @@
 $target: #2563eb;
 $middle: #15803d;
-$start: #c7d2fe;
-$end: #a5b4fc;
+$start: #a78bfa;
+$end: #c084fc;
 
 .binary-search {
     display: flex;
@@ -11,7 +11,7 @@ $end: #a5b4fc;
 
 .wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 1.6rem;
     min-height: 4rem;
@@ -20,16 +20,24 @@ $end: #a5b4fc;
 .flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     gap: 1.6rem;
     min-height: 4rem;
+}
+
+.notice {
+    position: absolute;
+    top: 1.6rem;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 :host ::ng-deep .options {
     display: flex;
     gap: 1.6rem;
     height: 4rem;
-    
+
     &__input {
         border: none;
         border-radius: .4rem;
@@ -46,16 +54,36 @@ $end: #a5b4fc;
 }
 
 ::ng-deep .legend {
+    position: relative;
     width: 100%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 1.6rem;
     padding: .8rem;
-    background: #cbd5e1;
     border-radius: .8rem;
-    font-size: 700;
+    font-weight: 700;
     color: #1e293b;
+    background: linear-gradient(to right, #dbeafe, #d1fae5, #ede9fe, #fae8ff);
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        border-radius: .8rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% + .8rem);
+        height: calc(100% + .8rem);
+        background: conic-gradient(
+                darken(#d1fae5, 2) 0%,
+                darken(#fae8ff, 2) 25%,
+                darken(#ede9fe, 2) 50%,
+                darken(#dbeafe, 2) 75%,
+                darken(#d1fae5, 2) 100%
+        );
+    }
 
     &--target {
         background: $target;
@@ -87,21 +115,5 @@ $end: #a5b4fc;
             aspect-ratio: 1/1;
             border-radius: 10rem;
         }
-    }
-}
-
-button {
-    height: 4rem;
-    padding-left: 3.2rem;
-    padding-right: 3.2rem; 
-    min-width: 12.8rem;
-    background: #0ea5e9;
-    color: #f1f5f9;
-    border-radius: .4rem;
-    border: none;
-    cursor: pointer;
-
-    &:hover {
-        filter: brightness(1.1);
     }
 }
