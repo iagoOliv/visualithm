@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BinarySearchService {
-  	middleIndexes: number[] = [];
+  middleIndexes: number[] = [];
 	startIndexes: number[] = [];
 	endIndexes: number[] = [];
 	iterationCount: number = -1;

@@ -9,11 +9,19 @@
         ></app-input>
         <app-input class="options"
             placeholder="Digite o número a pesquisar."
-            button_message="Pesquisar"
-            (buttonClick)="onCreate($event)"
+            button_message="Nulo"
         ></app-input>
     </div>
-    
+    <div class="flex">
+        <button
+            (click)="subtractIterator()"
+        >Voltar -- </button>
+        <button
+            (click)="addIterator()"
+        >Avançar ++ </button>
+        <span>Não estrapole o número de iterações da pesquisa binária</span>
+        <span>Target é 20</span>
+    </div>
     <div class="legend">
         <div class="legend__wrapper">
             <div class="legend__wrapper--icon legend--target"></div>
@@ -32,12 +40,12 @@
             <span class="legend__wrapper-text">End</span>
         </div>
     </div>
-    
+
     <div class="array-card__wrapper" #_binarySearchArray>
         <app-array-card
             *ngFor="let item of array"
             [item]="item"
         ></app-array-card>
     </div>
-    
+
 </main>

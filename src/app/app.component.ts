@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { bootstrapApplication } from '@angular/platform-browser';
 import { provideRouter } from '@angular/router';
 import { routes } from './app-routing.module';
 
@@ -15,9 +14,3 @@ import { routes } from './app-routing.module';
 export class AppComponent {
   title = 'visualithm';
 }
-
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes)
-  ]
-});

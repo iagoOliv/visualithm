@@ -13,7 +13,16 @@ $end: #a5b4fc;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: .8rem;
+    gap: 1.6rem;
+    min-height: 4rem;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.6rem;
+    min-height: 4rem;
 }
 
 :host ::ng-deep .options {
@@ -78,5 +87,21 @@ $end: #a5b4fc;
             aspect-ratio: 1/1;
             border-radius: 10rem;
         }
+    }
+}
+
+button {
+    height: 4rem;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem; 
+    min-width: 12.8rem;
+    background: #0ea5e9;
+    color: #f1f5f9;
+    border-radius: .4rem;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(1.1);
     }
 }

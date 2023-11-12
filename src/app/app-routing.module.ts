@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BinarySearchComponent } from './components/binary-search/binary-search.component';
+import { BinarySearchComponent } from './pages/binary-search/binary-search.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorLandingComponent } from './pages/error-landing/error-landing.component';
 import { SoonLandingComponent } from './pages/soon-landing/soon-landing.component';

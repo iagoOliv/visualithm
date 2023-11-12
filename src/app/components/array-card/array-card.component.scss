@@ -1,4 +1,6 @@
-$target: #042f2e;
+$main: #cbd5e1;
+$faded: lighten(#cbd5e1, 2);
+$target: #2563eb;
 $middle: #15803d;
 $start: #c7d2fe;
 $end: #a5b4fc;
@@ -9,10 +11,11 @@ $end: #a5b4fc;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #cbd5e1;
+    background: $main;
     border-radius: .4rem;
     color: #0f172a;
     font-weight: 800;
+    animation: quicklyAppearFromBottom 100ms linear backwards;
     transition: all 50ms ease-in-out;
 
     &:hover {
@@ -48,10 +51,17 @@ $end: #a5b4fc;
     animation: pulse 500ms ease-in-out backwards;
 }
 
+.faded {
+    color: darken($faded, 5);
+    background: $faded;
+    box-shadow: 0 0 1.6rem $faded;
+    animation: pulse 500ms ease-in-out backwards; 
+}
+
 @keyframes appearFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(.4px);
+        transform: translateY(12px);
     }
     100% {
         opacity: 1;
@@ -68,5 +78,16 @@ $end: #a5b4fc;
     }
     100% {
         transform: translate(1);
+    }
+}
+
+@keyframes quicklyAppearFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
