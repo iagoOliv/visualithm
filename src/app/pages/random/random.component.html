@@ -1,0 +1,13 @@
+<app-go-to-button></app-go-to-button>
+
+<main class="random">
+  <span class="random__output" #output>0</span>
+  <div class="random__options">
+    <app-button (click)="render()" buttonText="Gerar números"></app-button>
+  </div>
+</main>
+
+<app-sound-effect
+  #iteration
+  category="iteration"
+></app-sound-effect>

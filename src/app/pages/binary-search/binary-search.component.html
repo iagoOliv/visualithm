@@ -13,12 +13,8 @@
         ></app-input>
     </div>
     <div class="flex">
-        <button
-            (click)="subtractIterator()"
-        >Voltar -- </button>
-        <button
-            (click)="addIterator()"
-        >Avançar ++ </button>
+        <app-button (click)="subtractIterator()" buttonText="<- Voltar"></app-button>
+        <app-button (click)="addIterator()" buttonText="Avançar ->"></app-button>
         <span>Não estrapole o número de iterações da pesquisa binária</span>
         <span>Target é 20</span>
     </div>

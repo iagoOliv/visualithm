@@ -1,5 +1,5 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
-import { BinarySearchService } from 'src/app/services/binary-search.service';
+import { BinarySearchService } from 'src/app/services/binary-search-service/binary-search.service';
 
 @Component({
     selector: 'app-binary-search',
@@ -40,7 +40,7 @@ export class BinarySearchComponent {
             let middle = middleIndexesHistory[i];
             let start = startIndexesHistory[i];
             let end = endIndexesHistory[i];
-            
+
             this.removeFade();
 
             this.addPositionalClasses(start, middle, end);
@@ -58,7 +58,7 @@ export class BinarySearchComponent {
         if (this.startIteration >= this.endIteration) {
             return;
         }
-        this.startIteration++; 
+        this.startIteration++;
         this.onCreate("20");
     }
 
@@ -116,8 +116,14 @@ export class BinarySearchComponent {
         }
     }
 
+    resetIteratorsTimeline() {
+        this.startIteration = -1;
+    }
+
     async createArray(inputValue: string) {
         this.array = [];
+        this.resetIteratorsTimeline();
+        this.removeAllPositionalClasses();
         for (let i = 0; i < +inputValue; i++) {
             this.array.push(i);
         }

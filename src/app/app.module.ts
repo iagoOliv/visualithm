@@ -13,6 +13,9 @@ import { provideRouter } from '@angular/router';
 import { ErrorLandingComponent } from './pages/error-landing/error-landing.component';
 import { SoonLandingComponent } from './pages/soon-landing/soon-landing.component';
 import { GoToButtonComponent } from './components/go-to-button/go-to-button.component';
+import { RandomComponent } from './pages/random/random.component';
+import { SoundEffectComponent } from './components/sound-effect/sound-effect.component';
+import { ButtonComponent } from './components/button/button.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { GoToButtonComponent } from './components/go-to-button/go-to-button.comp
     HomeComponent,
     ErrorLandingComponent,
     SoonLandingComponent,
-    GoToButtonComponent
+    GoToButtonComponent,
+    RandomComponent,
+    SoundEffectComponent,
+    ButtonComponent
   ],
   imports: [
     AppComponent,

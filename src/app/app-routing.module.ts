@@ -4,10 +4,11 @@ import { BinarySearchComponent } from './pages/binary-search/binary-search.compo
 import { HomeComponent } from './pages/home/home.component';
 import { ErrorLandingComponent } from './pages/error-landing/error-landing.component';
 import { SoonLandingComponent } from './pages/soon-landing/soon-landing.component';
-import { GoToButtonComponent } from './components/go-to-button/go-to-button.component';
+import {RandomComponent} from "./pages/random/random.component";
 
 export const routes: Routes = [
   { path: 'binary-search', component: BinarySearchComponent},
+  { path: 'random', component: RandomComponent},
   { path: 'soon', component: SoonLandingComponent},
   { path: '', component: HomeComponent},
   { path: '**', component: ErrorLandingComponent}

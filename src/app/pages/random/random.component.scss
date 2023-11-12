@@ -1,0 +1,35 @@
+.random {
+  padding: 2.4rem;
+  min-height: 20rem;
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: end;
+  background: #cbd5e1;
+  border-radius: .8rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__output {
+    color: #1e293b;
+    top: 2.4rem;
+    left: 2.4rem;
+    position: absolute;
+    font-size: 6.4rem;
+    font-weight: 700;
+
+    &--done {
+      color: #14532d;
+    }
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+
+  }
+}
