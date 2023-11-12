@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BinarySearchService {
-  middleIndexes: number[] = [];
+    middleIndexes: number[] = [];
 	startIndexes: number[] = [];
 	endIndexes: number[] = [];
-	iterationCount: number = -1;
+	iterationCount: number = 0;
 
   	constructor() { }
 
@@ -40,6 +40,6 @@ export class BinarySearchService {
 		this.middleIndexes = [];
 		this.startIndexes = [];
 		this.endIndexes = [];
-		this.iterationCount = -1;
+		this.iterationCount = 0;
 	}
 }

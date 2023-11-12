@@ -117,3 +117,12 @@ $end: #c084fc;
         }
     }
 }
+
+.iterator {
+    position: fixed;
+    top: 50%;
+    left: 2.4rem;
+    transform: translateY(-50%);
+    font-size: 3.2rem;
+    font-weight: 800;
+}

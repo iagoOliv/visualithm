@@ -8,35 +8,39 @@ import { BinarySearchService } from 'src/app/services/binary-search-service/bina
 })
 
 export class BinarySearchComponent {
-    creating: boolean = false;
-    array: number[] = [];
     components: any;
-    startIteration: number = -1;
-    endIteration: number = 0;
+    array: number[] = [];
+    currentIteration: number = 0;
+    limitIteration: number = 0;
+    inputTarget: number = 0;
 
     constructor(private renderer: Renderer2, private binarySearchService: BinarySearchService) { }
 
-    @ViewChild('_binarySearchArray', { static: true }) _binarySearchArray!: ElementRef
-    async onCreate(target: string) {
-        if (+target >= this.array.length) { return; }
+    @ViewChild('_binarySearchArray', { static: true }) _binarySearchArray!: ElementRef;
+    @ViewChild('_iterator', { static: true }) _iterator!: ElementRef;
 
+    // Anteriormente essa função resetava o Binary Search
+    // toda vez que era chamada, criando baixa performance.
+    async onCreate() {
+        if ((this.inputTarget >= this.array.length)) { return; }
+
+        // Modifica o texto do _iterator no DOM
+        this._iterator.nativeElement.textContent = this.currentIteration;
+
+        // Inicialização
         this.components = this._binarySearchArray.nativeElement.childNodes;
-        this.binarySearchService.binarySearch(this.array, +target);
-        this.endIteration = this.binarySearchService.iterationCount;
+        this.limitIteration = this.binarySearchService.iterationCount;
 
-        // Histories
+        // Históricos
         const middleIndexesHistory = this.binarySearchService.middleIndexes;
         const startIndexesHistory = this.binarySearchService.startIndexes;
         const endIndexesHistory = this.binarySearchService.endIndexes;
 
-        this.removeAllPositionalClasses();
-
-        this.renderer.addClass(this.components[+target].children[0], 'target');
-        this.stop(1000);
-        this.renderer.removeClass(this.components[+target].childNodes[0], 'target');
+        console.log(`Current Iteration: ${this.currentIteration} // Limit Iteration: ${this.limitIteration}`)
+        console.log(`Middle Index History: ${middleIndexesHistory} // Start Index History: ${startIndexesHistory} // End Index History: ${endIndexesHistory}`);
 
         // Renderização dos Arrays
-        for (let i = this.startIteration; i <= this.startIteration; i++) {
+        for (let i = this.currentIteration; i <= this.currentIteration; i++) {
             let middle = middleIndexesHistory[i];
             let start = startIndexesHistory[i];
             let end = endIndexesHistory[i];
@@ -46,29 +50,40 @@ export class BinarySearchComponent {
             this.addPositionalClasses(start, middle, end);
             this.fadeToLeft(start);
             this.fadeToRight(end);
-
-            await this.stop(1500);
         }
+    }
+
+    // Change Target reseta o Serviço Binary Search e remove todas as classes anteriormente criadas;
+    changeTarget($event: string) {
+        this.inputTarget = +$event;
+
         this.binarySearchService.restart();
-        this.creating = false;
+        this.binarySearchService.binarySearch(this.array, this.inputTarget);
+
+        this.resetIteratorsTimeline();
+        this.removeFade();
+        this.removeAllPositionalClasses();
+
+        this.onCreate();
     }
 
-    addIterator() {
-        // Não funciona
-        if (this.startIteration >= this.endIteration) {
-            return;
-        }
-        this.startIteration++;
-        this.onCreate("20");
+    goForward() {
+        if (this.currentIteration >= this.limitIteration - 1) { return; }
+        this.currentIteration += 1;
+        this.onCreate();
     }
 
-    subtractIterator() {
-        this.startIteration--;
-        this.onCreate("20");
+    goBack() {
+        if (this.currentIteration < 1) { return; }
+        this.currentIteration -= 1;
+        this.removeFade();
+        this.removeAllPositionalClasses();
+        this.onCreate();
     }
 
-    // FUNÇÕES REUTILIZÁVEIS PARA MELHOR LEITURA
-
+    /*
+        || Funções de Manipulação do DOM
+    */
     fadeToLeft(start: number) {
         for(let i = 0; i < start; i++) {
             this.renderer.addClass(this.components[i].children[0], 'faded');
@@ -83,11 +98,16 @@ export class BinarySearchComponent {
 
     removeFade() {
         for (let i = 0; i < this.array.length; i++) {
-            this.renderer.removeClass(this.components[i].children[0], 'faded');
+            try {
+                this.renderer.removeClass(this.components[i].children[0], 'faded');
+            } catch (e) {
+                console.log("This element doesn't have the 'faded' class.");
+            }
         }
     }
 
     addPositionalClasses(start: number, middle: number, end: number) {
+        try {
         start == middle
             ? this.renderer.removeClass(this.components[start].children[0], "start")
             : this.renderer.addClass(this.components[start].children[0], "start")
@@ -96,12 +116,10 @@ export class BinarySearchComponent {
             : this.renderer.addClass(this.components[end].children[0], "end")
 
         this.renderer.addClass(this.components[middle].children[0], "middle");
-    };
+        } catch (e) {
+            console.log("Couldn't add this class. ", e)
+        }
 
-    removePositionalClasses(start: number, middle: number, end: number) {
-        this.renderer.removeClass(this.components[start].children[0], "start");
-        this.renderer.removeClass(this.components[end].children[0], "end");
-        this.renderer.removeClass(this.components[middle].children[0], "middle");
     };
 
     removeAllPositionalClasses() {
@@ -117,7 +135,7 @@ export class BinarySearchComponent {
     }
 
     resetIteratorsTimeline() {
-        this.startIteration = -1;
+        this.currentIteration = 0;
     }
 
     async createArray(inputValue: string) {

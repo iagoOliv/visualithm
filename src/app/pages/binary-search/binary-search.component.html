@@ -1,5 +1,7 @@
 <app-go-to-button goToThis=""></app-go-to-button>
 
+<span #_iterator class="iterator">0</span>
+
 <main class="binary-search">
     <div class="wrapper">
         <app-input class="options"
@@ -9,17 +11,14 @@
         ></app-input>
         <app-input class="options"
                    placeholder="Digite o número a pesquisar."
-                   button_message="Nulo"
+                   button_message="Reiniciar"
+                   (buttonClick)="changeTarget($event)"
         ></app-input>
     </div>
-    <div class="notice flex">
-        <span>Não estrapole o número de iterações da pesquisa binária</span>
-        <span>Target é 20</span>
-    </div>
     <div class="flex">
-        <app-button-icon (click)="subtractIterator()"
+        <app-button-icon (click)="goBack()"
                          buttonImage="assets/icons/caret-back-outline.svg"></app-button-icon>
-        <app-button-icon (click)="addIterator()"
+        <app-button-icon (click)="goForward()"
                          buttonImage="assets/icons/caret-forward-outline.svg"></app-button-icon>
     </div>
     <div class="legend">
