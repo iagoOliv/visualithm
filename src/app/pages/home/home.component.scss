@@ -2,11 +2,30 @@ body {
     background: linear-gradient(#f1f5f9,#e2e8f0);
 }
 
+// Header Menu
+
+.menu__wrapper {
+    position: absolute;
+    left: 3rem;
+    top: 3rem;
+    background-color: #CBD5E1;
+    padding: .4rem .8rem;
+    cursor: pointer;
+
+    img {
+        width: 3rem;
+        color: #fff;
+    }
+}
+
+// Menu Home
+
 .algorithms {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
     margin-bottom: 3.2rem;
+    margin: 0 auto;
 }
 
 .list {

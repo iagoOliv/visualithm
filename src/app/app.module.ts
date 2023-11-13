@@ -31,7 +31,7 @@ import { CopyrightComponent } from './components/copyright/copyright.component';
     RandomComponent,
     SoundEffectComponent,
     ButtonIconComponent,
-    CopyrightComponent
+    CopyrightComponent,
   ],
   imports: [
     AppComponent,
