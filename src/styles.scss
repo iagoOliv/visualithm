@@ -38,9 +38,8 @@ app-root {
     }
 }
 
-@media screen and (min-width: 45rem) {
-    .legend {
-        background: none;
-        border-radius: none;
+@media screen and (max-width: 55rem) {
+    html {
+        font-size: 55%;
     }
 }

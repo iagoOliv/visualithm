@@ -30,6 +30,18 @@ body {
         text-decoration: none;
         transition: all 100ms ease-in-out;
 
+        & [type="search"]:hover {
+            box-shadow: 0 0 1.6rem #1e40af55;
+        }
+
+        & [type="sort"]:hover {
+            box-shadow: 0 0 1.6rem #4f46e555;
+        }
+
+        & [type="other"]:hover {
+            box-shadow: 0 0 1.6rem #0f172a55;
+        }
+
         &:hover {
             transform: scale(1.1);
             box-shadow: 0 0 1.6rem #0f172a55;
@@ -69,5 +81,4 @@ body {
     aspect-ratio: 1/1;
     z-index: -2;
     filter: brightness(1.2) opacity(0.2);
-
 }
