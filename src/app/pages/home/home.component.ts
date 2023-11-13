@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
     title = 'app-home';
+    showComponent: boolean = false;
 
-
+    showPopUpComponent(): void {
+        this.showComponent = !this.showComponent;
+    }
 }

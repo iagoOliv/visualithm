@@ -1,5 +1,5 @@
 <header class="menu__wrapper">
-    <div class="btn" >
+    <div class="btn" (click)="showPopUpComponent()">
         <img src="../../../assets/icons/menu-icon.svg" alt="">
     </div>
 
@@ -34,3 +34,5 @@
 <span class="absolute-text">VISUALITHM</span>
 
 <img class="background-logo" src="assets/logo.png" alt="Visualithm logo: the letter V is shown in a hexagon.">
+
+<app-home-pop-up *ngIf="showComponent"></app-home-pop-up>

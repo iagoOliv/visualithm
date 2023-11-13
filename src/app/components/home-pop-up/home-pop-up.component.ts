@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-pop-up.component.scss']
 })
 export class HomePopUpComponent {
-    showComponent: boolean = false;
+
 }

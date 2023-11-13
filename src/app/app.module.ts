@@ -17,6 +17,7 @@ import { RandomComponent } from './pages/random/random.component';
 import { SoundEffectComponent } from './components/sound-effect/sound-effect.component';
 import { ButtonIconComponent } from './components/button/button-icon.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
+import { HomePopUpComponent } from './components/home-pop-up/home-pop-up.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { CopyrightComponent } from './components/copyright/copyright.component';
     SoundEffectComponent,
     ButtonIconComponent,
     CopyrightComponent,
+    HomePopUpComponent
   ],
   imports: [
     AppComponent,
