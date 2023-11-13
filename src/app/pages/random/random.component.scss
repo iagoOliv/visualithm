@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: end;
   align-items: end;
-  background: #cbd5e1;
+  background: var(--wp-foreground-300);
   border-radius: .8rem;
   position: absolute;
   top: 50%;
@@ -14,7 +14,7 @@
   transform: translate(-50%, -50%);
 
   &__output {
-    color: #1e293b;
+    color: var(--wp-foreground-800);
     top: 2.4rem;
     left: 2.4rem;
     position: absolute;
@@ -22,7 +22,7 @@
     font-weight: 700;
 
     &--done {
-      color: #14532d;
+      color: #16a34a;
     }
   }
 

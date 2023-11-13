@@ -6,7 +6,7 @@
     aspect-ratio: 1/1;
     border-radius: 10rem;
     padding: .8rem;
-    background: #cbd5e1;
+    background: var(--wp-foreground-300);
     transition: all ease-in-out 100ms;
 
     &:hover {

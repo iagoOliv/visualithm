@@ -11,9 +11,9 @@ $end: #c084fc;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $main;
+    background: var(--wp-foreground-300);
     border-radius: .4rem;
-    color: #0f172a;
+    color: var(--wp-foreground-800);
     font-weight: 800;
     animation: quicklyAppearFromBottom 100ms linear backwards;
     transition: all 50ms ease-in-out;
@@ -52,9 +52,9 @@ $end: #c084fc;
 }
 
 .faded {
-    color: darken($faded, 5);
-    background: $faded;
-    box-shadow: 0 0 1.6rem $faded;
+    color: var(--wp-foreground-200);
+    background: var(--wp-foreground-100);
+    box-shadow: 0 0 1.6rem var(--wp-foreground-100);
     animation: pulse 500ms ease-in-out backwards;
 }
 
