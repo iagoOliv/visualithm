@@ -34,7 +34,16 @@ body {
     gap: 1.6rem;
 
     &__title {
-        color: #334155;
+        color: var(--wp-foreground-600);
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 1.6rem;
+        padding: .8rem;
+        border-radius: .8rem;
+        background: var(--wp-foreground-400);
+        width: fit-content;
     }
 
     &__link {
@@ -44,10 +53,22 @@ body {
         justify-content: center;
         width: 20rem;
         aspect-ratio: 16/9;
-        background: #cbd5e1;
+        background: var(--wp-foreground-300);
         border-radius: .8rem;
         text-decoration: none;
         transition: all 100ms ease-in-out;
+
+        & [type="search"]:hover {
+            box-shadow: 0 0 1.6rem #1e40af55;
+        }
+
+        & [type="sort"]:hover {
+            box-shadow: 0 0 1.6rem #4f46e555;
+        }
+
+        & [type="other"]:hover {
+            box-shadow: 0 0 1.6rem #0f172a55;
+        }
 
         &:hover {
             transform: scale(1.1);
@@ -60,7 +81,7 @@ body {
         }
 
         &--text {
-            color: #0f172a;
+            color: var(--wp-foreground-700);
 
             &:visited {
                 text-decoration: none;
@@ -76,17 +97,16 @@ body {
     z-index: -1;
     font-size: 9.2rem;
     font-weight: 800;
-    color: #94a3b8;
+    color: var(--wp-foreground-300);
     user-select: none;
 }
 
 .background-logo {
     position: fixed;
-    bottom: -12.8rem + 6.4rem;
-    right: -12.8rem +  6.4rem;
+    bottom: -12.8rem;
+    right: -12.8rem;
     height: 25.6rem;
     aspect-ratio: 1/1;
     z-index: -2;
     filter: brightness(1.2) opacity(0.2);
-
 }

@@ -12,8 +12,6 @@ export class RandomComponent {
   size: number = 20;
 
   constructor(private renderer: Renderer2, private randomService: RandomService) { }
-
-  @ViewChild("iteration", {read: ElementRef}) iteration!: ElementRef
   @ViewChild("output", {read: ElementRef}) output!: ElementRef
 
   async render() {
@@ -36,18 +34,12 @@ export class RandomComponent {
         : audio = new Audio("assets/iteration.mp3");
       await audio.play()
       this.output.nativeElement.textContent = this.numbersArray[i];
-      this.iteration.nativeElement.children[0].play();
-      await this.stop(100 + (i * 20) - (i * 20 / this.numbersArray.length));
+      await this.stop(100 + (i * i - 10));
     }
     this.renderer.addClass(this.output.nativeElement, "random__output--done");
     this.rendering = false;
 
     console.log(this.numbersArray)
-  }
-
-  triggerSound():void {
-    this.iteration.nativeElement.children[0].play();
-    this.iteration.nativeElement.children[0].stop();
   }
 
   // Cria uma promessa a ser resolvida.
