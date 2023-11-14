@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  title = 'app-home';
+    title = 'app-home';
+    showComponent: boolean = false;
+
+    showPopUpComponent(): void {
+        this.showComponent = !this.showComponent;
+    }
 }

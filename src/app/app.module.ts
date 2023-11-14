@@ -16,6 +16,7 @@ import { GoToButtonComponent } from './components/go-to-button/go-to-button.comp
 import { RandomComponent } from './pages/random/random.component';
 import { ButtonIconComponent } from './components/button/button-icon.component';
 import { CopyrightComponent } from './components/copyright/copyright.component';
+import { HomePopUpComponent } from './components/home-pop-up/home-pop-up.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CopyrightComponent } from './components/copyright/copyright.component';
     GoToButtonComponent,
     RandomComponent,
     ButtonIconComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    HomePopUpComponent
   ],
   imports: [
     AppComponent,
