@@ -1,6 +1,9 @@
-<button
-  class="button"
->
-  <p>{{buttonText}}</p>
-  <img class="button--image" src="{{buttonImage}}" />
+<button *ngIf='goTo == ""' class="button util__flexrow--8 {{ color }}">
+  <p *ngIf="buttonText" >{{buttonText}}</p>
+  <img class="button--image " src="{{buttonImage}}" />
 </button>
+
+<a *ngIf='goTo != ""' class="button util__flexrow--8 {{ color }}" href="{{goTo}}">
+  <p *ngIf="buttonText" >{{buttonText}}</p>
+  <img class="button--image " src="{{buttonImage}}" />
+</a>

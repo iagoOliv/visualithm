@@ -5,7 +5,7 @@
 *::after {
     padding: 0;
     margin: 0;
-    box-sizing: auto;
+    box-sizing: border-box;
 }
 
 html {
@@ -71,7 +71,7 @@ input {
 
 .options__submit {
     padding-left: 3.2rem;
-    padding-right: 3.2rem; 
+    padding-right: 3.2rem;
     background: #0ea5e9;
     color: #f1f5f9;
     cursor: pointer;
@@ -116,7 +116,7 @@ input {
 @keyframes appearFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(.4px);
+        transform: translateY(.4rem);
     }
     100% {
         opacity: 1;
@@ -132,6 +132,6 @@ input {
         transform: scale(1.5);
     }
     100% {
-        transform: translate(1);
+        transform: scale(1);
     }
 }

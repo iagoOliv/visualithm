@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
+    --wp--global-padding-top: 1.6rem;
+    --wp--global-padding-left: 1.6rem;
+
     --wp-foreground-900: #0f172a;
     --wp-foreground-800: #1e293b;
     --wp-foreground-700: #334155;
@@ -10,6 +13,17 @@
     --wp-foreground-300: #cbd5e1;
     --wp-foreground-200: #e2e8f0;
     --wp-foreground-100: #f1f5f9;
+
+    --wp-blue-950: #172554;
+    --wp-blue-900: #1e3a8a;
+    --wp-blue-800: #1e40af;
+    --wp-blue-700: #1d4ed8;
+    --wp-blue-600: #2563eb;
+    --wp-blue-500: #3b82f6;
+    --wp-blue-400: #60a5fa;
+    --wp-blue-300: #93c5fd;
+    --wp-blue-200: #bfdbfe;
+    --wp-blue-100: #dbeafe;
 }
 
 *,
@@ -40,12 +54,81 @@ h1, h2 {
     color: var(--wp-foreground-800);
 }
 
+a {
+    text-decoration: none;
+}
+
 app-root {
     margin-top: 6.4rem;
     width: 80%;
     display: flex;
     flex-direction: column;
     gap: 3.2rem;
+}
+
+// Classes utilitáriias evitam criação de classes CSS repetitivas.
+// .componente1 { display: flex; gap: .4rem; }
+// .componente1 { display: flex; gap: .4rem; }
+// Poderia ser resumido aplicando uma classe universal para ambos os casos
+.util {
+    &__flexrow {
+        &--4 {
+            display: flex;
+            gap: .4rem;
+        }
+        &--8 {
+            display: flex;
+            gap: .8rem;
+        }
+        &--16 {
+            display: flex;
+            gap: 1.6rem;
+        }
+    }
+
+    &__flexcolumn {
+        &--4 {
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
+        }
+        &--8 {
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+        }
+        &--16 {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+    }
+}
+
+.blue {
+    &--950 { background: #172554 !important; }
+    &--900 { background: #1e3a8a !important; }
+    &--800 { background: #1e40af !important; }
+    &--700 { background: #1d4ed8 !important; }
+    &--600 { background: #2563eb !important; }
+    &--500 { background: #3b82f6 !important; }
+    &--400 { background: #60a5fa !important; }
+    &--300 { background: #93c5fd !important; }
+    &--200 { background: #bfdbfe !important; }
+    &--100 { background: #dbeafe !important; }
+}
+
+.zinc {
+    &--950 { background: #09090b !important; }
+    &--900 { background: #18181b !important; }
+    &--800 { background: #27272a !important; }
+    &--700 { background: #3f3f46 !important; }
+    &--600 { background: #52525b !important; }
+    &--500 { background: #71717a !important; }
+    &--400 { background: #a3a3a3 !important; }
+    &--300 { background: #d4d4d4 !important; }
+    &--200 { background: #e4e4e7 !important; }
+    &--100 { background: #f4f4f5 !important; }
 }
 
 @media screen and (max-width:60rem) {
@@ -67,7 +150,44 @@ app-root {
         --wp-foreground-100: #0f172a;
     }
 
+    .legend {
+        background: var(--wp-foreground-300) !important;
+
+        &::before {
+            filter: brightness(0.8);
+        }
+    }
+
+    .menu img,
+    .goto img {
+        filter: invert(1) brightness(0.9);
+    }
+
     .list__link--icon {
-        filter: invert(1) brightness(0.8);
+        filter: invert(1) brightness(0.9);
+    }
+}
+
+
+@keyframes appearFromBottom {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -49%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+@keyframes quicklyAppearFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

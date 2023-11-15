@@ -1,22 +1,26 @@
-<div class="pop-up__wrapper">
-    <div class="top">
-        <h2>Visualithm</h2>
-        <p>Visualithm is a webapp made in Angular and Sass which contains some hand-picked algorithms visualizations</p>
-        <div class="repo__link">
-            <span>Repo</span>
-            <img src="../../../assets/icons/link-vector.svg" alt="">
+<div class="popup__root">
+    <div class="popup">
+        <div class="popup__header">
+            <div class="popup__title util__flexrow--4">
+                <h2 class="v">Visualithm</h2>
+                <span class="popup__title--version">v1.0</span>
+            </div>
+            <p>Visualithm é um webapp feito em Angular e Sass que contém algumas visualizações de algoritmos. Originalmente criada para a disciplina de Programação Orientada a Objetos e Estruturas de Dados do IFPB do curso de Redes de Computadores.</p>
+            <app-button-icon goTo="https://github.com/iagoOliv/visualithm" class="popup__button" color="blue--600"  buttonText="Source" buttonImage="../../../assets/icons/link-vector.svg"></app-button-icon>
         </div>
-    </div>
 
-    <div class="bottom">
-        <h2>Copyright</h2>
-        <div class="iago__link">
-            <p>Iago Oliveira</p>
-            <a href="">@iagoOliv</a>
-        </div>
-        <div class="arthur__link">
-            <p>Arthur Rodrigues</p>
-            <a href="">@arthurrodrigues-dev</a>
+        <div class="popup__footer">
+            <h2>Copyright</h2>
+            <div class="util__flexcolumn--4">
+                <div class="popup__author">
+                    <p class="popup__author--name">Iago Oliveira</p>
+                    <a class="popup__author--username" href="https://github.com/iagoOliv">@iagoOliv</a>
+                </div>
+                <div class="popup__author">
+                    <p class="popup__author--name">Arthur Rodrigues</p>
+                    <a class="popup__author--username" href="https://github.com/arthurrodrigues-dev">@arthurrodrigues-dev</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

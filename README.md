@@ -1,10 +1,13 @@
 # Visualithm
-
 Veja alguns algorítmos em tempo real!
 
+<div align="center">
 A WebApp usa:
 
 <img src="https://skillicons.dev/icons?i=angular,ts,sass,nodejs"></img>
+
+![Powered by Vercel](src/assets/powered-by-vercel.svg)
+</div>
 
 ## Metas
 | **Algorítmo**                 | **Implementação** |
