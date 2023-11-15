@@ -65,7 +65,7 @@ $end: #c084fc;
     padding: .8rem;
     border-radius: .8rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--wp-foreground-700);
     background: linear-gradient(to right, #dbeafe, #d1fae5, #ede9fe, #fae8ff);
 
     &::before {
@@ -79,11 +79,11 @@ $end: #c084fc;
         width: calc(100% + .8rem);
         height: calc(100% + .8rem);
         background: conic-gradient(
-                darken(#d1fae5, 2) 0%,
-                darken(#fae8ff, 2) 25%,
-                darken(#ede9fe, 2) 50%,
-                darken(#dbeafe, 2) 75%,
-                darken(#d1fae5, 2) 100%
+                        #d1fae5 0%,
+                        #fae8ff 25%,
+                        #ede9fe 50%,
+                        #dbeafe 75%,
+                        #d1fae5 100%
         );
     }
 

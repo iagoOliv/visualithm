@@ -150,8 +150,21 @@ app-root {
         --wp-foreground-100: #0f172a;
     }
 
+    .legend {
+        background: var(--wp-foreground-300) !important;
+
+        &::before {
+            filter: brightness(0.8);
+        }
+    }
+
+    .menu img,
+    .goto img {
+        filter: invert(1) brightness(0.9);
+    }
+
     .list__link--icon {
-        filter: invert(1) brightness(0.8);
+        filter: invert(1) brightness(0.9);
     }
 }
 
