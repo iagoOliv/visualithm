@@ -1,12 +1,12 @@
 .goto {
     position: fixed;
-    top: 1.6rem;
-    left: 1.6rem;
+    top: var(--wp--global-padding-top);
+    left: var(--wp--global-padding-left);
     height: 3.2rem;
     aspect-ratio: 1/1;
-    border-radius: 10rem;
+    border-radius: .4rem;
     padding: .8rem;
-    background: var(--wp-foreground-300);
+    background: var(--wp-foreground-400);
     transition: all ease-in-out 100ms;
 
     &:hover {

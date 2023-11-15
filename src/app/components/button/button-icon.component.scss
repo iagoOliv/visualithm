@@ -1,21 +1,20 @@
 .button {
-  padding: .8rem .8rem;
-  height: 4.2rem;
-  background: #1d4ed8;
-  color: #f1f5f9;
-  cursor: pointer;
-  border: none;
-  border-radius: .4rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding: .8rem 1.6rem;
+    color: #f1f5f9;
+    cursor: pointer;
+    border: none;
+    border-radius: .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
 
   &--image {
-    height: 100%;
-    aspect-ratio: 1/1;
+        height: 2.4rem;
+        aspect-ratio: 1/1;
   }
 
   &:hover {
-    filter: brightness(1.1);
+        filter: brightness(1.1);
   }
 }

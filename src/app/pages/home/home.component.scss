@@ -2,17 +2,23 @@ body {
     background: linear-gradient(#f1f5f9,#e2e8f0);
 }
 
-// Header Menu
+// Popup Menu
 
-.menu__wrapper {
+.menu {
     position: absolute;
-    left: 3rem;
-    top: 3rem;
-    background-color: #CBD5E1;
-    padding: .4rem .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    top: var(--wp--global-padding-top);
+    left: var(--wp--global-padding-left);
+    background-color: var(--wp-foreground-400);
+    border-radius: .4rem;
+    width: 4.8rem;
+    height: 4.8rem;
     cursor: pointer;
 
-    img {
+    & img {
         width: 3rem;
         color: #fff;
     }
@@ -32,6 +38,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+    width: 100%;
+    overflow: auto;
 
     &__title {
         color: var(--wp-foreground-600);
